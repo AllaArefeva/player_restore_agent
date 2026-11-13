@@ -1,0 +1,12 @@
+metrics_to_run:
+  - restoration_policy_compliance
+  - custom_response_quality
+
+custom_metrics:
+  # Deterministic & policy evaluation: ensures 10-rule safety bounds, no direct cloning, quota check, SLA notice, etc.
+  - name: restoration_policy_compliance
+    custom_function_file: restoration_compliance.py
+
+  # LLM-as-judge: evaluates empathy, clarity, guidance quality, and agreement with expected behavior
+  - name: custom_response_quality
+    custom_function_file: response_quality.py

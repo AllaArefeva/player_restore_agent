@@ -1,0 +1,343 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "intake_and_blueprint_coaching",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Hi, my 95 OVR build disappeared after a crash on my PS5. My player ID is 2K-USR-984210. Can you help me restore it?"
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The player is eligible. The orphaned build is a 95 OVR 2-Way Floor-Spacing Slasher (PG, 6'6\", 180 lbs, 6'11\" wingspan). The agent instructs them to create an untouched 60 OVR placeholder matching these specs without spending VC or using Rebirth."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "quota_exceeded_refusal",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Hello, my build vanished on Xbox Series X. My player account ID is 2K-USR-EXCEEDED. Please help me restore my player."
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent checks eligibility and finds the player has reached the lifetime limit of 10 restorations. The agent politely informs the player that their request cannot proceed due to quota exhaustion and does NOT instruct them to create a placeholder."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "velocity_exceeded_refusal",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Hey support, I lost another build on my PS5. My account ID is 2K-USR-VELOCITY. Can I get a restore?"
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent checks eligibility and discovers the player has used 5 restorations in the trailing 30 days. The agent explains the 30-day velocity limit policy politely and informs them they cannot restore at this time."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "wingspan_typo_realtime_coaching",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "My player ID is 2K-USR-TYPO22. I lost my 90 OVR SG build on PS5."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "role": "model",
+                  "parts": [
+                    {
+                      "text": "I checked your account and found your 90 OVR 3-Level Threat (SG, 6'5\", 195 lbs, 6'11\" wingspan). Please create an untouched 60 OVR placeholder with these exact specs on your console."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "Okay, I created the placeholder in Slot 3 on my console. Can you validate it?"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent calls discover_candidate_placeholders and validate_restoration_candidate. The validation fails because the placeholder has a 6'10\" wingspan instead of 6'11\". The agent kindly coaches the player to correct the wingspan setting."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "tainted_placeholder_rejection",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "My player ID is 2K-USR-UPGRADE. I lost my build on PS5."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "role": "model",
+                  "parts": [
+                    {
+                      "text": "I found your 92 OVR Defensive Menace build. Please create a clean 60 OVR placeholder with no VC spent."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "I made the placeholder in Slot 4, but I already put some VC into it to bring it to 65 OVR. Can you check it?"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent validates the placeholder and rejects it because it has upgraded attributes (65 OVR). The agent explains that placeholder saves must be strictly 60 OVR with 0 VC spent and instructs them to create a new blank placeholder."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "validation_success_and_confirmation_prompt",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "My player ID is 2K-USR-984210. I lost my build on PS5."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "role": "model",
+                  "parts": [
+                    {
+                      "text": "I found your 95 OVR 2-Way Floor-Spacing Slasher (PG, 6'6\", 180 lbs, 6'11\" wingspan). Please create an untouched 60 OVR placeholder matching these specs."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "I've created the placeholder in Slot 2 with those exact specs. Can you validate it?"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent calls discover_candidate_placeholders and validate_restoration_candidate. All 10 checks pass. The agent summarizes the successful validation checks and asks the player for explicit confirmation to proceed with restoring into Slot 2."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "player_confirmation_and_48h_sla_staging",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "My player ID is 2K-USR-984210. I created the placeholder in Slot 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "role": "model",
+                  "parts": [
+                    {
+                      "text": "All 10 validation checks have passed! Please confirm: Would you like to restore your 95 OVR 2-Way Floor-Spacing Slasher build into Slot 2?"
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "Yes, I confirm! Please restore my build into Slot 2."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent calls stage_case_for_human_review with player_confirmed=True. The agent returns the generated Ticket ID (RESTORE-...) and explicitly communicates the 48-hour SLA notice for Specialist Review Team processing. The agent DOES NOT call execute_restoration_clone directly."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "player_denies_restoration",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "My player ID is 2K-USR-984210. I created the placeholder in Slot 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "role": "model",
+                  "parts": [
+                    {
+                      "text": "All 10 validation checks have passed! Please confirm: Would you like to restore your 95 OVR 2-Way Floor-Spacing Slasher build into Slot 2?"
+                    }
+                  ]
+                }
+              },
+              {
+                "author": "user",
+                "content": {
+                  "role": "user",
+                  "parts": [
+                    {
+                      "text": "Actually, cancel this restoration. I decided not to restore this build."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent gracefully acknowledges the cancellation without staging the case for review and without cloning the save."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+
