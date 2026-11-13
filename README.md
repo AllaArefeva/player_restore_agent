@@ -1,4 +1,4 @@
-# 2K MyPLAYER Build Restoration Agent (`player-restore-agent`)
+# MyPLAYER Build Restoration Agent (`player-restore-agent`)
 
 A conversational AI specialist built with the **Google Agent Development Kit (ADK)** and `agents-cli`. This agent automates the intake, discovery, builder coaching, deterministic safety validation, and Human-in-the-Loop (HITL) ticket staging for corrupted or lost 2K MyPLAYER builds.
 
